@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ADB WiFi</string>
+
+    <string name="action_adb_wifi_root">无线调试 (需要Root权限🚀)</string>
+    <string name="action_settings">设置⚙️</string>
+    <string name="action_about">关于应用🦥</string>
+
+    <string name="navigation_drawer_open">打开导航</string>
+    <string name="navigation_drawer_close">关闭导航</string>
+
+    <string name="double_click_exit">连按两次退出🛸</string>
+
+    <string name="shortcut_action_adb_wifi" translatable="false">top.i97.adbwifi.action.adbwifi</string>
+    <string name="shortcut_action_setting" translatable="false">top.i97.adbwifi.action.settings</string>
+    <string name="shortcut_action_about" translatable="false">top.i97.adbwifi.action.about</string>
+
+</resources>
