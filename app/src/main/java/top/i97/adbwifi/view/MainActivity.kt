@@ -6,7 +6,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import com.blankj.utilcode.util.ThreadUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.google.android.material.navigation.NavigationView
@@ -16,10 +15,8 @@ import top.i97.adbwifi.R
 import top.i97.adbwifi.view.fragment.AboutFragment
 import top.i97.adbwifi.view.fragment.AdbWiFiRootFragment
 import top.i97.adbwifi.view.fragment.SettingsFragment
-import java.lang.NumberFormatException
 
-class MainActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedListener,
-    NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val drawerToggle by lazy {
         ActionBarDrawerToggle(
@@ -58,19 +55,25 @@ class MainActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedList
     }
 
     private fun init() {
+        setToolbar()
         tvTitle.text = getString(R.string.app_name)
-        setSupportActionBar(toolbar)
         setDrawerAndNavigation()
         setShortcut()
-        fm.addOnBackStackChangedListener(this)
+    }
+
+    private fun setToolbar() {
+        toolbar.apply {
+            setSupportActionBar(this)
+            tvTitle.text = getString(R.string.app_name)
+        }
     }
 
     // 通过桌面 Shortcut 调用
     private fun setShortcut() {
         when (intent.action) {
-            getString(R.string.shortcut_action_adb_wifi) -> handleSelectedPage(R.id.nav_adb_root)
             getString(R.string.shortcut_action_setting) -> handleSelectedPage(R.id.nav_settings)
             getString(R.string.shortcut_action_about) -> handleSelectedPage(R.id.nav_about)
+            else -> handleSelectedPage(R.id.nav_adb_root)
         }
     }
 
@@ -79,23 +82,6 @@ class MainActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedList
         drawerToggle.syncState()
         navigation.setNavigationItemSelectedListener(this)
         navigation.itemIconTintList = null
-    }
-
-    override fun onBackStackChanged() {
-        var stackName = ""
-        for (it in 0 until fm.backStackEntryCount) {
-            stackName = fm.getBackStackEntryAt(it).name.toString()
-        }
-        var navItemId = -1
-        try {
-            navItemId = stackName.toInt()
-        } catch (e: NumberFormatException) {
-            // empty
-        }
-
-        if (navItemId > 0) {
-            navigation.setCheckedItem(navItemId)
-        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -132,19 +118,13 @@ class MainActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedList
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         }
-        if (fm.backStackEntryCount > 1) {
-            fm.popBackStack()
-        } else if (fm.backStackEntryCount == 1) {
-            if (doubleBackTag) {
-                finish()
-            } else {
-                ToastUtils.showShort(R.string.double_click_exit)
-            }
-            doubleBackTag = true
-            ThreadUtils.runOnUiThreadDelayed({ doubleBackTag = false }, 2000)
+        if (doubleBackTag) {
+            finish()
         } else {
-            super.onBackPressed()
+            ToastUtils.showShort(R.string.double_click_exit)
         }
+        doubleBackTag = true
+        ThreadUtils.runOnUiThreadDelayed({ doubleBackTag = false }, 2000)
     }
 
 }

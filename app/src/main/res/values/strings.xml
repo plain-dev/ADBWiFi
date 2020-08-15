@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ADB WiFi</string>
+    <string name="app_name">无线调试</string>
 
     <string name="action_adb_wifi_root">无线调试 (需要Root权限🚀)</string>
     <string name="action_settings">设置⚙️</string>
