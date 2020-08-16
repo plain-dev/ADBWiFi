@@ -17,9 +17,9 @@
         <td>设置 ⚙️</td> 
    </tr>
     <tr>
-        <td ><img src='./screenshot/screenshot_home.png' /></td>  
-        <td ><img src='./screenshot/screenshot_navigation.png' /></td>  
-        <td ><img src='./screenshot/screenshot_settings.png' /></td> 
+        <td ><img src='./screenshot/screenshot_home.jpg' /></td>  
+        <td ><img src='./screenshot/screenshot_navigation.jpg' /></td>  
+        <td ><img src='./screenshot/screenshot_settings.jpg' /></td> 
     </tr>
 </table>
 
