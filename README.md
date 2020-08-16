@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./app/src/main/ic_launcher-playstore.png" width='150px' alt="ic_launcher-web">
+</div>
+
 # ADB WiFi 无线调试
 
 > 🦥 在手机上开启无线调试（需要Root）
@@ -24,7 +28,9 @@
 
 如图
 
-![amUZu3](/screenshot/quick_tile.jpg)
+<img src="/screenshot/quick_tile.jpg" height = "300" align=center />
+
+
 
 
 
