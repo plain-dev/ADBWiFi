@@ -1,4 +1,4 @@
-package top.i97.adbwifi.Utils
+package top.i97.adbwifi.utils
 
 /**
  *  name: Constant
@@ -13,4 +13,8 @@ const val DEFAULT_TAG = "defaultTag"
 
 const val PORT_KEY = "portKey"
 
+const val ENABLE_KEY = "enableKey"
+
 const val DEFAULT_PORT = "5555"
+
+const val ADB_WIFI_ENABLE_ACTION = "adbWiFiEnableAction"

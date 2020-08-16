@@ -10,8 +10,8 @@
 
     <string name="double_click_exit">连按两次退出🛸</string>
 
-    <string name="adb_connect_message">ADB 已连接到 %1$S:%2$s ✈️</string>
-    <string name="adb_disconnect_message">ADB 断开链接 ✂️</string>
+    <string name="adb_connect_message">已开启无线调试 %1$S:%2$s ✈️</string>
+    <string name="adb_disconnect_message">未开启无线调试 ✂️</string>
 
     <string name="not_connected_wifi">未连接到 WiFi 网络 📡</string>
 
@@ -41,5 +41,16 @@
     <string name="shortcut_action_adb_wifi" translatable="false">top.i97.adbwifi.action.adbwifi</string>
     <string name="shortcut_action_setting" translatable="false">top.i97.adbwifi.action.settings</string>
     <string name="shortcut_action_about" translatable="false">top.i97.adbwifi.action.about</string>
+
+    <string name="about_author">\@plain-dev</string>
+    <string name="about_website">https://plain-dev.com</string>
+    <string name="about_email">plaindev@88.com</string>
+
+    <string name="using_help">使用本工具🔧开启无线调试后，请在电脑💻终端中运行以下命令连接设备\n\n
+       🔗连接设备: adb connect [IP]:[PORT] \n
+        📱查看已连接设备列表: adb devices\n
+        ✂️断开连接: adb disconnect [IP]:[PORT]\n\n
+        ⚠️本软件需要Root权限，授予权限才能正常使用⚠️
+    </string>
 
 </resources>

@@ -7,8 +7,8 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.blankj.utilcode.util.ToastUtils
 import top.i97.adbwifi.R
-import top.i97.adbwifi.Utils.getPort
-import top.i97.adbwifi.Utils.setPort
+import top.i97.adbwifi.utils.getPort
+import top.i97.adbwifi.utils.setPort
 
 /**
  *  name: SettingsFragment
@@ -68,15 +68,15 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     private fun handleSystemPref() {
         rebootPref?.setOnPreferenceClickListener {
-            ToastUtils.showShort("正在施工🚧")
+            ToastUtils.showShort("暂未开放🚧")
             true
         }
         powerOffPref?.setOnPreferenceClickListener {
-            ToastUtils.showShort("正在施工🚧")
+            ToastUtils.showShort("暂未开放🚧")
             true
         }
         softRebootPref?.setOnPreferenceClickListener {
-            ToastUtils.showShort("正在施工🚧")
+            ToastUtils.showShort("暂未开放🚧")
             true
         }
     }

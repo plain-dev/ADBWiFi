@@ -8,19 +8,16 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/card_height"
         android:layout_marginStart="@dimen/vertical_margin"
         android:layout_marginTop="@dimen/vertical_margin"
         android:layout_marginEnd="@dimen/vertical_margin"
         android:layout_marginBottom="@dimen/vertical_margin"
-        android:background="@android:color/white"
-        app:cardCornerRadius="@dimen/card_radius"
-        app:cardElevation="@dimen/card_elevation"
-        app:cardPreventCornerOverlap="false">
+        style="@style/cardStyle">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -38,8 +35,19 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_medium" />
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.cardview.widget.CardView>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvWarring"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:text="@string/no_root_privileges_granted"
+            android:textSize="@dimen/text_size_medium"
+            android:visibility="gone" />
+
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

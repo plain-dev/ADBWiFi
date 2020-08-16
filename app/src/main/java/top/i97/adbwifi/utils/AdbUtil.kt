@@ -1,12 +1,9 @@
-package top.i97.adbwifi.Utils
+package top.i97.adbwifi.utils
 
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
-import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.ShellUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.blankj.utilcode.util.Utils
-import top.i97.adbwifi.R
 
 /**
  *  name: AdbUtil
@@ -28,17 +25,29 @@ fun getPort(): String {
 }
 
 /**
+ * 无线调试是否开启
+ */
+fun adbWiFiIsActivated(): Boolean {
+    val successMsg = ShellUtils.execCmd(
+        "getprop service.adb.tcp.port\n",
+        true,
+        true
+    ).successMsg
+    return successMsg.matches("^[1-9]\\d*\$".toRegex()) && !successMsg.contains("-1");
+}
+
+/**
  * 开关无线调试
  *
  * [enable] true: 打开 , false: 关闭
  */
-fun enableAdbWifi(enable: Boolean) {
+fun enableAdbWiFi(enable: Boolean) {
     ShellUtils.execCmd(
         arrayListOf(
             "setprop service.adb.tcp.port " + (if (enable) getPort() else "-1") + "\n",
             "stop adbd\n",
             "start adbd\n",
             "exit\n"
-        ), true, true
+        ), true
     )
 }

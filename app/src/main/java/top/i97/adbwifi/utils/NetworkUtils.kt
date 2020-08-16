@@ -1,6 +1,5 @@
-package top.i97.adbwifi.Utils
+package top.i97.adbwifi.utils
 
-import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities

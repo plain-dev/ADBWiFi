@@ -1,6 +1,7 @@
 package top.i97.adbwifi
 
 import android.app.Application
+import top.i97.adbwifi.utils.GlobalExceptionCapture
 
 /**
  *  name: GlobalApplication
@@ -14,6 +15,7 @@ class GlobalApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        GlobalExceptionCapture.getInstance(this).setLogPath(externalCacheDir?.absolutePath)
     }
 
 }
