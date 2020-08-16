@@ -10,6 +10,34 @@
 
     <string name="double_click_exit">连按两次退出🛸</string>
 
+    <string name="adb_connect_message">ADB 已连接到 %1$S:%2$s ✈️</string>
+    <string name="adb_disconnect_message">ADB 断开链接 ✂️</string>
+
+    <string name="not_connected_wifi">未连接到 WiFi 网络 📡</string>
+
+    <string name="adb_wifi_turned_on">无线调试开启</string>
+    <string name="adb_wifi_turned_off">无线调试关闭</string>
+
+    <string name="no_root_privileges_granted">未授予root权限 🚨</string>
+
+    <string name="preference_category_title_general">通用设置</string>
+    <string name="preference_category_title_system">设备相关</string>
+    <string name="preference_port_title">端口</string>
+    <string name="preference_port_summary">指定无线调试端口</string>
+    <string name="preference_reboot_title">重启</string>
+    <string name="preference_reboot_summary">点击后手机将重启</string>
+    <string name="preference_power_off_title">关机</string>
+    <string name="preference_power_off_summary">点击后手机将关机</string>
+    <string name="preference_soft_reboot_title">软重启</string>
+    <string name="preference_soft_reboot_summary">点击后手机将软重启</string>
+    <string name="preference_key_port" translatable="false">port_pref_keys</string>
+    <string name="preference_key_reboot" translatable="false">reboot_pref_keys</string>
+    <string name="preference_key_power_off" translatable="false">power_off_pref_keys</string>
+    <string name="preference_key_soft_reboot" translatable="false">soft_reboot_pref_keys</string>
+
+    <string name="save_port_success">"保存成功，端口: %1$s，重新开启生效"</string>
+    <string name="save_port_failed">"保存失败，请检查输入"</string>
+
     <string name="shortcut_action_adb_wifi" translatable="false">top.i97.adbwifi.action.adbwifi</string>
     <string name="shortcut_action_setting" translatable="false">top.i97.adbwifi.action.settings</string>
     <string name="shortcut_action_about" translatable="false">top.i97.adbwifi.action.about</string>

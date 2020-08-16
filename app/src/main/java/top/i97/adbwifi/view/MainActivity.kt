@@ -1,13 +1,11 @@
 package top.i97.adbwifi.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.fragment.app.Fragment
-import com.blankj.utilcode.util.ThreadUtils
-import com.blankj.utilcode.util.ToastUtils
+import com.blankj.utilcode.util.FragmentUtils
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_app_bar.*
@@ -44,9 +42,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         AboutFragment.newInstance()
     }
 
-    private var doubleBackTag = false
+    private val fragments by lazy {
+        mutableListOf(adbWiFiRootFragment, settingsFragment, aboutFragment)
+    }
 
-    private lateinit var fragment: Fragment
+    private var currentIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,16 +55,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun init() {
+        initFragments()
         setToolbar()
-        tvTitle.text = getString(R.string.app_name)
         setDrawerAndNavigation()
         setShortcut()
+    }
+
+    private fun initFragments() {
+        FragmentUtils.add(
+            supportFragmentManager,
+            fragments,
+            R.id.container,
+            arrayOf("fm1", "fm2", "fm3"),
+            currentIndex
+        )
     }
 
     private fun setToolbar() {
         toolbar.apply {
             setSupportActionBar(this)
-            tvTitle.text = getString(R.string.app_name)
+            //tvTitle.text = getString(R.string.app_name)
+            title = getString(R.string.app_name)
         }
     }
 
@@ -94,23 +105,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
      * 🚜处理选中页面
      */
     private fun handleSelectedPage(itemId: Int) {
+
         when (itemId) {
-            R.id.nav_adb_root -> fragment = adbWiFiRootFragment
-            R.id.nav_settings -> fragment = settingsFragment
-            R.id.nav_about -> fragment = aboutFragment
+            R.id.nav_adb_root -> {
+                showCurrentFragment(0)
+                title = getString(R.string.action_adb_wifi_root)
+            }
+            R.id.nav_settings -> {
+                showCurrentFragment(1)
+                title = getString(R.string.action_settings)
+            }
+            R.id.nav_about -> {
+                showCurrentFragment(2)
+                title = getString(R.string.action_about)
+            }
         }
 
-        // 替换页面
-        fm.beginTransaction()
-            .setCustomAnimations(
-                android.R.animator.fade_in,
-                android.R.animator.fade_out,
-                android.R.animator.fade_in,
-                android.R.animator.fade_out
-            )
-            .replace(R.id.container, fragment)
-            .addToBackStack(itemId.toString())
-            .commit()
+        // navigation selected
+        navigation.setCheckedItem(itemId)
+    }
+
+    private fun showCurrentFragment(index: Int) {
+        currentIndex = index
+        FragmentUtils.showHide(index, fragments)
     }
 
     override fun onBackPressed() {
@@ -118,13 +135,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         }
-        if (doubleBackTag) {
-            finish()
-        } else {
-            ToastUtils.showShort(R.string.double_click_exit)
+        if (!FragmentUtils.dispatchBackPress(fragments[currentIndex])) {
+            super.onBackPressed()
         }
-        doubleBackTag = true
-        ThreadUtils.runOnUiThreadDelayed({ doubleBackTag = false }, 2000)
     }
 
 }

@@ -4,4 +4,10 @@
     <dimen name="vertical_margin">20dp</dimen>
     <dimen name="navigation_header_height">180dp</dimen>
     <dimen name="vertical_spacing">10dp</dimen>
+    <dimen name="card_height">200dp</dimen>
+    <dimen name="card_radius">6dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
+    <dimen name="text_size_large">30sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
 </resources>

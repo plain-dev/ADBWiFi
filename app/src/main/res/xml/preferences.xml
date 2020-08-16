@@ -1,0 +1,33 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/action_settings">
+
+    <PreferenceCategory android:title="@string/preference_category_title_general">
+
+        <EditTextPreference
+            android:background="@color/colorAccent"
+            android:key="@string/preference_key_port"
+            android:summary="@string/preference_port_summary"
+            android:title="@string/preference_port_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preference_category_title_system">
+
+        <Preference
+            android:background="@color/colorAccent"
+            android:key="@string/preference_key_reboot"
+            android:summary="@string/preference_reboot_summary"
+            android:title="@string/preference_reboot_title" />
+        <Preference
+            android:background="@color/colorAccent"
+            android:key="@string/preference_key_power_off"
+            android:summary="@string/preference_power_off_summary"
+            android:title="@string/preference_power_off_title" />
+        <Preference
+            android:background="@color/colorAccent"
+            android:key="@string/preference_key_soft_reboot"
+            android:summary="@string/preference_soft_reboot_summary"
+            android:title="@string/preference_soft_reboot_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
