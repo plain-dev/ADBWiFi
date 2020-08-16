@@ -8,6 +8,21 @@
 > 
 > Turn on wireless debugging on the phone (Root required)
 
+## 预览
+
+<table>
+    <tr>
+        <td>首页 🏠</td> 
+        <td>导航 🧭</td> 
+        <td>设置 ⚙️</td> 
+   </tr>
+    <tr>
+        <td ><img src='./screenshot/screenshot_home.png' /></td>  
+        <td ><img src='./screenshot/screenshot_navigation.png' /></td>  
+        <td ><img src='./screenshot/screenshot_settings.png' /></td> 
+    </tr>
+</table>
+
 ## 使用帮助
 
 ### 基本
@@ -26,7 +41,7 @@
 
 开启方式: `下拉通知栏` -> `编辑菜单` -> `添加开关`，如图
 
-<img src="/screenshot/quick_tile.jpg" height = "500" align=center />
+<img src="./screenshot/screenshot_quick_tile.jpg" height = "500" align=center />
 
 ## License
 
