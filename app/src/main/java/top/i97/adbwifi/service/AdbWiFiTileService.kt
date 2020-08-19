@@ -42,7 +42,7 @@ class AdbWiFiTileService : TileService() {
             sendBroadcast(Intent(ADB_WIFI_ENABLE_ACTION))
         }, 500)
     }
-
+    
     private fun update() {
         val activated = adbWiFiIsActivated()
         // update tile state
